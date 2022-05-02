@@ -6,11 +6,11 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/21 08:57:55 by hmochida          #+#    #+#             */
-/*   Updated: 2021/07/25 19:51:59 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/05/02 11:35:32 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "fdf.h"
 
 int	ft_strlen(const char *s)
 {

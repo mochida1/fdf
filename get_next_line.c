@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "fdf.h"
-#include "get_next_line.h"
 
 static char	*oflw_upd(char *o, char *b)
 {

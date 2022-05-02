@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 04:17:05 by hmochida          #+#    #+#             */
-/*   Updated: 2022/05/02 05:32:16 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/05/02 11:33:25 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 /*
 ** INCLUDES INCLUSIONS
 */
-# include "../libraries/libft/libft.h"
-# include "../libraries/minilibx-linux/mlx.h"
-# include "../libraries/minilibx-linux/mlx_int.h"
-# include "./definitions.h"
-# include "./get_next_line.h"
+# include "./libraries/libft/libft.h"
+# include "./libraries/minilibx-linux/mlx.h"
+# include "./libraries/minilibx-linux/mlx_int.h"
+# include "./includes/definitions.h"
+# include "./includes/get_next_line.h"
 # include <unistd.h>
 # include <fcntl.h>
 # include <errno.h>

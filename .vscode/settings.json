@@ -6,6 +6,7 @@
 		"xlib.h": "c",
 		"xfuncproto.h": "c",
 		"x.h": "c",
-		"cstdio": "c"
+		"cstdio": "c",
+		"mlx.h": "c"
 	}
 }
