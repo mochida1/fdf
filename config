@@ -1,0 +1,11 @@
+DO NOT FUCK WITH THIS FILE!
+ITS HERE TO MAKE LIFE A LITTLE BIT EASIER ON EVALUATIONS.
+
+3. screen width: 1280
+4.screen height: 800
+5.default_color_max: 0xff00ff
+6.default_color_min: 0x00ff00
+
+screen dimensions are as pixels. Must not be larger than int values or negative.
+colors are as hex ints, 0x00adcdef format;
+again, DONT FUCK WITH THIS FILE.

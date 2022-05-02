@@ -1,0 +1,11 @@
+{
+	"files.associations": {
+		"libft.h": "c",
+		"fdf.h": "c",
+		"mlx_int.h": "c",
+		"xlib.h": "c",
+		"xfuncproto.h": "c",
+		"x.h": "c",
+		"cstdio": "c"
+	}
+}
