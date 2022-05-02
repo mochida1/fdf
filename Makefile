@@ -6,7 +6,7 @@ LIBFT = libft.a
 #pathing
 LFT_PATH = ./libraries/libft/
 MLX_PATH = ./libraries/minilibx-linux/
-INCLUDES = ./includes
+INCLUDES = ./includes/
 SRCDIR = ./src/
 
 #sauce code - yummy.
@@ -42,48 +42,45 @@ $(SRCDIR)exit_seq.c \
 $(SRCDIR)exit_seq_utils.c \
 $(SRCDIR)matrix_ops.c \
 $(SRCDIR)matrix_ops1.c \
-$(SRCDIR)get_def_color.c \
+$(SRCDIR)get_def_color.c
 
-
-OBJ=$(notdir $(SRC:.c=.o))
-#OBJ= fdf.o
+OBJ = $(notdir $(SRC:%.c=%.o))
 
 #compilation
-CF = -Wall -Wextra -Werror
-CC = clang
-MLX_CF = -lm -lbsd -lmlx -lXext -lX11
-CFI = -I$(INCLUDES)
+CF = -Wall -Wextra -Werror -O3
+CC = cc
+MLX_CF = -lft -lm -lbsd -lmlx -lXext -lX11 
+CFI = -I $(INCLUDES)
 
 #common commands
 RM =rm -f
 
 #rules
-all: $(NAME)
-	make meme
+all: $(NAME) meme
 
-$(NAME): $(OBJ) $(LIBFT) $(MLX)
+$(NAME): $(OBJ) $(LIBFT) $(MLX)  
 	@printf "\n$(CY)==== LINKING SHIT TOGETHER ====$(RC)\n"
-	$(CC) $(CF) -o $(NAME) $(OBJ) -L $(LFT_PATH) -L $(MLX_PATH) -lft $(MLX_CF)
+	$(CC) $(CF) -o $(NAME) $(OBJ) -L$(LFT_PATH) -L$(MLX_PATH) $(MLX_CF) $(CFI)
 	@printf "$(GR)==== ENJOY! ====$(RC)\n\n"
 
-$(OBJ): $(SRC)
+$(OBJ): $(SRC) 
 	@printf "\n$(CY)==== COMPILING SRCs ====$(RC)\n"
-	$(CC) $(CF) -g -c -I ./includes/ $(SRC)
+	$(CC) $(CF) -g -c $(CFI) $(SRC)
 	@printf "$(GR)==== COMPILED! ====$(RC)\n\n"
 
 $(MLX):
 	@printf "\n$(CY)==== PRAYING FOR MINILIBX ====$(RC)\n"
-	@make -C $(MLX_PATH)
+	make -C $(MLX_PATH)
 	@printf "$(GR)==== MINILIBX DONEZOR ====$(RC)\n\n"
 
 $(LIBFT):
 	@printf "\n$(GR)==== MAKING SACRIFICES TO LIBFT! ====$(RC)\n"
-	@make -C $(LFT_PATH)
+	make -C $(LFT_PATH)
 	@printf "$(GR)==== LIBFT SUMMONED! ====$(RC)\n\n"
 
 clean:
 	@printf "\n$(YE)==== REMOVING BLOODSTAINS FROM LIBFT ====$(RC)\n"
-	@make clean -C $(LFT_PATH)
+	make clean -C $(LFT_PATH)
 	@printf "$(GR)==== LIBFT IS NOW CLEAN ====$(RC)\n\n"
 	$(RM) $(OBJ) $(BONUS_OBJ)
 
@@ -91,18 +88,25 @@ fclean: clean
 	@printf "\n$(YE)==== CLEAN ALL THE THINGS! ====$(RC)\n"
 	$(RM) $(NAME) $(BONUS_OBJ)
 	@printf "\n$(GR)==== ALL the things...? ====$(RC)\n"
-	@make fclean -C $(LFT_PATH)
+	make fclean -C $(LFT_PATH)
 	@printf "\n$(YE)==== PURGING THE MINILIBX HERESY! ====$(RC)\n"
-	@make clean -C $(MLX_PATH)
+	make clean -C $(MLX_PATH)
 	@printf "$(GR)==== MINILIBX IS NO MORE! ====$(RC)\n\n"
+
+re: fclean all
 
 git: fclean
 	git add -A
 	git commit -m "update"
 	git push
 
-run: ${NAME}
+run: $(NAME)
 	valgrind ./fdf maps/test_maps/42.fdf
+
+norm:
+	norminette ./includes
+	norminette ./src
+	norminette ./libraries/libft
 
 .PHONY: clean fclean re all bonus
 

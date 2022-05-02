@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 03:49:00 by hmochida          #+#    #+#             */
-/*   Updated: 2021/09/27 04:42:08 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/05/02 08:18:17 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static int	check_filename(char *argv)
 		|| argv[i - 3] != '.')
 		return (0);
 	while (i <= 0)
-		if (argv[i] < 33 || argv[i--] > 127)
+		if ((argv[i] < 33) || (argv[i--] > 126))
 			return (0);
 	return (1);
 }

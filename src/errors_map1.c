@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 19:28:23 by hmochida          #+#    #+#             */
-/*   Updated: 2022/01/03 19:24:05 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/05/02 08:15:36 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int	ch_flag(t_gnl_list *temp, int i)
 			i--;
 			if (ft_isspace_nonl(temp->line[i]))
 				return (flag);
-			if (temp->line[i] == 'x' & temp->line[i -1] == '0')
+			if ((temp->line[i] == 'x') & (temp->line[i -1] == '0'))
 				flag = 0;
 		}
 		i--;
