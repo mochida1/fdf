@@ -50,7 +50,7 @@ OBJ = $(notdir $(SRC:%.c=%.o))
 #compilation
 CF = -Wall -Wextra -Werror -O3
 CC = cc
-MLX_CF = -lft -lm -lbsd -lmlx -lXext -lX11 
+MLX_CF = -lft -lmlx -lXext -lX11 
 CFI = -I $(INCLUDES)
 
 #common commands
