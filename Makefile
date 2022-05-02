@@ -1,4 +1,4 @@
-#naming
+#targets
 NAME = fdf
 MLX = libmlx_Linux.a
 LIBFT = libft.a
@@ -9,42 +9,43 @@ MLX_PATH = ./libraries/minilibx-linux/
 INCLUDES = ./includes/
 SRCDIR = ./src/
 
-#sauce code - yummy.
+#naming
 SRC = $(SRCDIR)fdf.c \
-$(SRCDIR)ft_mlx_putpix.c \
-$(SRCDIR)ft_mlx_putln.c \
-$(SRCDIR)ft_iabs.c \
-$(SRCDIR)ft_isspace_nonl.c \
-$(SRCDIR)ft_atoihex.c \
-$(SRCDIR)get_color.c \
-$(SRCDIR)errors_arg.c \
-$(SRCDIR)errors_map.c \
-$(SRCDIR)errors_map1.c \
-$(SRCDIR)errors_map_utils.c \
-$(SRCDIR)errors_map_utils1.c \
-$(SRCDIR)errors_common.c \
-$(SRCDIR)get_next_line.c \
-$(SRCDIR)get_next_line_utils.c \
-$(SRCDIR)lst_utils0.c \
-$(SRCDIR)lst_utils1.c \
-$(SRCDIR)map_parser.c \
-$(SRCDIR)map_parser_utils.c \
-$(SRCDIR)map_parser_utils1.c \
-$(SRCDIR)atoi_er.c \
-$(SRCDIR)cfg.c \
-$(SRCDIR)init_mlx_data.c \
-$(SRCDIR)ft_mlx_event_handler.c \
-$(SRCDIR)ft_mlx_keymap.c \
-$(SRCDIR)key_esc.c \
-$(SRCDIR)render.c \
-$(SRCDIR)points.c \
-$(SRCDIR)exit_seq.c \
-$(SRCDIR)exit_seq_utils.c \
-$(SRCDIR)matrix_ops.c \
-$(SRCDIR)matrix_ops1.c \
-$(SRCDIR)get_def_color.c
+	$(SRCDIR)ft_mlx_putpix.c \
+	$(SRCDIR)ft_mlx_putln.c \
+	$(SRCDIR)ft_iabs.c \
+	$(SRCDIR)ft_isspace_nonl.c \
+	$(SRCDIR)ft_atoihex.c \
+	$(SRCDIR)get_color.c \
+	$(SRCDIR)errors_arg.c \
+	$(SRCDIR)errors_map.c \
+	$(SRCDIR)errors_map1.c \
+	$(SRCDIR)errors_map_utils.c \
+	$(SRCDIR)errors_map_utils1.c \
+	$(SRCDIR)errors_common.c \
+	$(SRCDIR)get_next_line.c \
+	$(SRCDIR)get_next_line_utils.c \
+	$(SRCDIR)lst_utils0.c \
+	$(SRCDIR)lst_utils1.c \
+	$(SRCDIR)map_parser.c \
+	$(SRCDIR)map_parser_utils.c \
+	$(SRCDIR)map_parser_utils1.c \
+	$(SRCDIR)atoi_er.c \
+	$(SRCDIR)cfg.c \
+	$(SRCDIR)init_mlx_data.c \
+	$(SRCDIR)ft_mlx_event_handler.c \
+	$(SRCDIR)ft_mlx_keymap.c \
+	$(SRCDIR)key_esc.c \
+	$(SRCDIR)render.c \
+	$(SRCDIR)points.c \
+	$(SRCDIR)exit_seq.c \
+	$(SRCDIR)exit_seq_utils.c \
+	$(SRCDIR)matrix_ops.c \
+	$(SRCDIR)matrix_ops1.c \
+	$(SRCDIR)get_def_color.c
 
 OBJ = $(notdir $(SRC:%.c=%.o))
+
 
 #compilation
 CF = -Wall -Wextra -Werror -O3
@@ -58,10 +59,11 @@ RM =rm -f
 #rules
 all: $(NAME) meme
 
-$(NAME): $(OBJ) $(LIBFT) $(MLX)  
+$(NAME): $(OBJ) $(LIBFT) $(MLX)
 	@printf "\n$(CY)==== LINKING SHIT TOGETHER ====$(RC)\n"
 	$(CC) $(CF) -o $(NAME) $(OBJ) -L$(LFT_PATH) -L$(MLX_PATH) $(MLX_CF) $(CFI)
 	@printf "$(GR)==== ENJOY! ====$(RC)\n\n"
+
 
 $(OBJ): $(SRC) 
 	@printf "\n$(CY)==== COMPILING SRCs ====$(RC)\n"
@@ -82,11 +84,11 @@ clean:
 	@printf "\n$(YE)==== REMOVING BLOODSTAINS FROM LIBFT ====$(RC)\n"
 	make clean -C $(LFT_PATH)
 	@printf "$(GR)==== LIBFT IS NOW CLEAN ====$(RC)\n\n"
-	$(RM) $(OBJ) $(BONUS_OBJ)
+	$(RM) $(OBJ)
 
 fclean: clean
 	@printf "\n$(YE)==== CLEAN ALL THE THINGS! ====$(RC)\n"
-	$(RM) $(NAME) $(BONUS_OBJ)
+	$(RM) $(NAME) 
 	@printf "\n$(GR)==== ALL the things...? ====$(RC)\n"
 	make fclean -C $(LFT_PATH)
 	@printf "\n$(YE)==== PURGING THE MINILIBX HERESY! ====$(RC)\n"
