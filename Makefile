@@ -1,6 +1,6 @@
 #targets
 NAME = fdf
-MLX = libmlx_Linux.a
+MLX = libmlx.a
 LIBFT = libft.a
 
 #pathing
@@ -8,6 +8,7 @@ LFT_PATH = ./libraries/libft/
 MLX_PATH = ./libraries/minilibx-linux/
 INCLUDES = ./includes/
 SRCDIR = ./src/
+OBJDIR = ./objs/
 
 #naming
 SRC = $(SRCDIR)fdf.c \
@@ -50,7 +51,7 @@ OBJ = $(notdir $(SRC:%.c=%.o))
 #compilation
 CF = -Wall -Wextra -Werror -O3
 CC = cc
-MLX_CF = -lft -lmlx -lXext -lX11 
+MLX_CF = -lm -lft -lmlx -lXext -lX11 
 CFI = -I $(INCLUDES)
 
 #common commands
@@ -62,8 +63,8 @@ all: $(NAME) meme
 $(NAME): $(OBJ) $(LIBFT) $(MLX)
 	@printf "\n$(CY)==== LINKING SHIT TOGETHER ====$(RC)\n"
 	$(CC) $(CF) -o $(NAME) $(OBJ) -L$(LFT_PATH) -L$(MLX_PATH) $(MLX_CF) $(CFI)
-	@printf "$(GR)==== ENJOY! ====$(RC)\n\n"
-
+	@mkdir objs
+	@printf "$(GR)==== ENJOY! ====$(RC)\n\n"	
 
 $(OBJ): $(SRC) 
 	@printf "\n$(CY)==== COMPILING SRCs ====$(RC)\n"
@@ -84,6 +85,7 @@ clean:
 	@printf "\n$(YE)==== REMOVING BLOODSTAINS FROM LIBFT ====$(RC)\n"
 	make clean -C $(LFT_PATH)
 	@printf "$(GR)==== LIBFT IS NOW CLEAN ====$(RC)\n\n"
+	rm -rf $(OBJDIR)
 	$(RM) $(OBJ)
 
 fclean: clean
